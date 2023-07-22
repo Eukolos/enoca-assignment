@@ -12,6 +12,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CompanyService {
+
     private final CompanyRepository repository;
 
     public CompanyDto saveCompany(CompanyDto companyDto) {

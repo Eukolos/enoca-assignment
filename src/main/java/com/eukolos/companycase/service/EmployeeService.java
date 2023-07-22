@@ -1,5 +1,6 @@
 package com.eukolos.companycase.service;
 
+import com.eukolos.companycase.dto.EmployeeCreateRequest;
 import com.eukolos.companycase.dto.EmployeeDto;
 import com.eukolos.companycase.entity.Employee;
 import com.eukolos.companycase.repository.EmployeeRepository;
@@ -12,12 +13,21 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class EmployeeService {
-    private final EmployeeRepository repository; // only one repository should be here Single Responsibility
 
-    public EmployeeDto saveEmployee(EmployeeDto employeeDto) {
+    private final EmployeeRepository repository; // only one repository should be here Single Responsibility
+    private final CompanyService companyService;
+
+    public EmployeeDto saveEmployee(EmployeeCreateRequest request) {
         return EmployeeDto.toDto(
                 repository.save(
-                        EmployeeDto.toEntity(employeeDto)
+                        Employee.builder()
+                                .firstName(request.firstName())
+                                .lastName(request.lastName())
+                                .phoneNumber(request.phoneNumber())
+                                .email(request.email())
+                                .department(request.department())
+                                .company(companyService.getCompanyByName(request.companyName()))
+                                .build()
                 )
         );
     }
@@ -31,6 +41,11 @@ public class EmployeeService {
     public List<EmployeeDto> getEmployeeByCompany(Long companyId) {
         return EmployeeDto.toDtoList(repository.findEmployeeByCompany_Id(companyId)
                 .orElseThrow(() -> new EntityNotFoundException("Company with ID {} not founded" + companyId)));
+    }
+
+    public EmployeeDto getEmployeeById(Long id) {
+        return EmployeeDto.toDto(repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Employee with ID {} not founded" + id)));
     }
 
     public EmployeeDto updateEmployeeById(Long id, EmployeeDto employeeDto) {
