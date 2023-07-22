@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 
@@ -23,6 +24,7 @@ public class Employee {
     private String email;
     private String phoneNumber;
     private double salary;
+    @CreationTimestamp
     private LocalDate hireDate;
     private String department;
     @ManyToOne
