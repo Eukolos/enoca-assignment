@@ -5,7 +5,6 @@ import com.eukolos.companycase.dto.EmployeeDto;
 import com.eukolos.companycase.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,39 +13,42 @@ import java.util.List;
 @RequestMapping("/api/v1/employee")
 @RequiredArgsConstructor
 public class EmployeeController {
-    private final EmployeeService service;
 
+    private final EmployeeService service; // Single Responsibility
+
+    // Not needed ResponseEntity cause handled thanx to ResponseBody from RestController
     @PostMapping
-    public ResponseEntity<EmployeeDto> saveEmployee(@RequestBody EmployeeCreateRequest request) {
-        return new ResponseEntity<>(service.saveEmployee(request), HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.CREATED)
+    public EmployeeDto saveEmployee(@RequestBody EmployeeCreateRequest request) {
+        return service.saveEmployee(request);
     }
 
     @GetMapping
-    public ResponseEntity<List<EmployeeDto>> getEmployeeList() {
-        return ResponseEntity.ok(service.getAllEmployees());
+    public List<EmployeeDto> getEmployeeList() {
+        return service.getAllEmployees();
     }
 
     @GetMapping("/company/{id}")
-    public ResponseEntity<List<EmployeeDto>> getEmployeeList(@PathVariable Long id) {
-        return ResponseEntity.ok(service.getEmployeeByCompany(id));
+    public List<EmployeeDto> getEmployeeList(@PathVariable Long id) {
+        return service.getEmployeeByCompany(id);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable Long id) {
-        return ResponseEntity.ok(service.getEmployeeById(id));
+    public EmployeeDto getEmployeeById(@PathVariable Long id) {
+        return service.getEmployeeById(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<EmployeeDto> updateEmployeeById(
+    public EmployeeDto updateEmployeeById(
             @PathVariable Long id,
             @RequestBody EmployeeDto employeeDto) {
-        return ResponseEntity.ok(service.updateEmployeeById(id, employeeDto));
+        return service.updateEmployeeById(id, employeeDto);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteEmployeeById(@PathVariable Long id) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteEmployeeById(@PathVariable Long id) {
         service.deleteEmployeeById(id);
-        return ResponseEntity.noContent().build();
     }
 
 }
