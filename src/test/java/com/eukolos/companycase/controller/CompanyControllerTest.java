@@ -2,7 +2,6 @@ package com.eukolos.companycase.controller;
 
 import com.eukolos.companycase.dto.*;
 import com.eukolos.companycase.entity.Company;
-import com.eukolos.companycase.entity.Department;
 import com.eukolos.companycase.service.CompanyService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,7 +14,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
