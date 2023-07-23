@@ -5,6 +5,7 @@
 
 - [Dependencies Used](#dependencies-used)
 - [Run the App](#🔨-run-the-app)
+- [Answer of Assigment Questions](https://github.com/Eukolos/enoca-assignment/blob/master/ANSWER.md)
 - [Tree of Layered Structure](#tree-of-layered-structure)
 - [Testing](#testing)
 - [Test App on Postman](#test-app-on-postman)
@@ -53,11 +54,9 @@
 
 The project is thoroughly tested to ensure code quality and reliability.
 
-### Integration Tests
+### Integration & Unit Tests
 
 Integration tests have been implemented using [JUnit](https://junit.org/) with TestContainer and [Postman](https://www.postman.com/) for API endpoints. The integration test files are located in the `src/test/java` directory.
-
-### Unit Tests
 
 Unit tests are written using [Mockito](https://site.mockito.org/) and [JUnit](https://junit.org/). Test cases for individual components and functions can be found in the `src/test/java` directory.
 
