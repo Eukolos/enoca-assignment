@@ -2,6 +2,9 @@ package com.eukolos.companycase.dto;
 
 import com.eukolos.companycase.entity.Department;
 import com.eukolos.companycase.entity.Employee;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -9,13 +12,13 @@ import java.util.List;
 import java.util.Optional;
 
 public record EmployeeDto(
-        String firstName,
-        String lastName,
-        String email,
-        String phoneNumber,
-        double salary,
+        @NotNull String firstName,
+        @NotNull  String lastName,
+        @Email String email,
+        @Max(20) @NotNull String phoneNumber,
+        @NotNull double salary,
         LocalDate hireDate,
-        Department department,
+        @NotNull Department department,
         CompanyRecursionDto companyDto
 ) {
 

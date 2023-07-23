@@ -1,0 +1,1099 @@
+{
+	"info": {
+		"_postman_id": "f8c43a7b-9ce8-40ed-a7e8-6a130a18159c",
+		"name": "Company Case",
+		"description": "# Company Management System - Enoca Assigment\n\n## Table of Contents\n\n- [Dependencies Used]()\n- [Run the App]()\n- [Test App on Postman]()\n- [Usage]()\n- [Contributing]()\n- [License]()\n    \n\n## Dependencies Used\n\n- [Spring Framework]()\n    - [Spring Boot]()\n    - [Spring Web]()\n    - [Spring Data]()\n    - [Spring Validation]()\n    - [Spring Test]()\n    - [TestContainer]()\n    - [Lombok]()\n- [Postgresql]()\n- [PG Admin 4]()\n- [Java JDK 17]()\n- [Maven]()\n- [Docker]()\n    \n\n## 🔨 Run the App\n\n#### Maven & Docker\n\n**1 )** Download your project from this link shown below\n\n```\n    git clone https://github.com/Eukolos/enoca-assignment.git\n\n ```\n\n**2 )** Go to the project's home directory shown below\n\n```\n    cd enoca-assignment\n\n ```\n\n**3 )** Create native image though this command shown below\n\n```\n    mvn -Pnative spring-boot:build-image\n\n ```\n\n**4 )** Run the project though this command shown below\n\n```\n    docker-compose up\n\n ```\n\n## Test App on Postman\n\n- **Payment Integration:** The project has been integrated with Stripe API, enabling users to make payments securely and conveniently.\n    - _**The Stripe API listens to a specific URL for notifications**_",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20436403"
+	},
+	"item": [
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Create Company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\":\"İpragaz\",\r\n    \"address\":\"Atatürk Mah. Ertuğrul Gazi Sok. Metropol İstanbul Sitesi C2 Blok No:2 A/25 (Kat: 22 -24) 34758 ATAŞEHİR / İSTANBUL\",\r\n    \"email\":\"ipranet@ipragaz.com.tr\",\r\n    \"phoneNumber\":\"+90 216 593 92 00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/company",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"company"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "İpragaz Record",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"companyName\":\"İpragaz\",\r\n    \"address\":\"Atatürk Mah. Ertuğrul Gazi Sok. Metropol İstanbul Sitesi C2 Blok No:2 A/25 (Kat: 22 -24) 34758 ATAŞEHİR / İSTANBUL\",\r\n    \"email\":\"ipranet@ipragaz.com.tr\",\r\n    \"phoneNumber\":\"+90 216 593 92 00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/company",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"company"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jul 2023 10:09:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"companyName\": \"İpragaz\",\n    \"address\": \"Atatürk Mah. Ertuğrul Gazi Sok. Metropol İstanbul Sitesi C2 Blok No:2 A/25 (Kat: 22 -24) 34758 ATAŞEHİR / İSTANBUL\",\n    \"email\": \"ipranet@ipragaz.com.tr\",\n    \"phoneNumber\": \"+90 216 593 92 00\",\n    \"employeesDto\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Company List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/company",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"company"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Companies",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/company",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"company"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jul 2023 10:12:49 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"companyName\": \"Avansas\",\n        \"address\": \"Avansas Ofis Malzemeleri Tic. A.Ş. Kısıklı Mah. Ferah Cad. No:10 Kat: 4-5-6-7 Üsküdar 34692 İstanbul / Türkiye\",\n        \"email\": \"destek@avansas.com\",\n        \"phoneNumber\": \"+90 216 365 78 00\",\n        \"employeesDto\": [\n            {\n                \"firstName\": \"Laurena\",\n                \"lastName\": \"McKomb\",\n                \"email\": \"lmckomba@purevolume.com\",\n                \"phoneNumber\": \"129-682-0848\",\n                \"salary\": 16000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"SERVICES\"\n            },\n            {\n                \"firstName\": \"Lynnett\",\n                \"lastName\": \"Potteridge\",\n                \"email\": \"lpotteridgeb@ezinearticles.com\",\n                \"phoneNumber\": \"907-967-0311\",\n                \"salary\": 20000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"SALES\"\n            },\n            {\n                \"firstName\": \"Inga\",\n                \"lastName\": \"Puddefoot\",\n                \"email\": \"ipuddefoote@wordpress.org\",\n                \"phoneNumber\": \"366-845-9812\",\n                \"salary\": 21000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"ACCOUNTING\"\n            },\n            {\n                \"firstName\": \"Enoch\",\n                \"lastName\": \"Halsey\",\n                \"email\": \"ehalseyf@so-net.ne.jp\",\n                \"phoneNumber\": \"497-972-9016\",\n                \"salary\": 25000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"ACCOUNTING\"\n            },\n            {\n                \"firstName\": \"Norean\",\n                \"lastName\": \"Bramer\",\n                \"email\": \"nbramerg@surveymonkey.com\",\n                \"phoneNumber\": \"873-670-9484\",\n                \"salary\": 17000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"HUMAN_RESOURCE\"\n            },\n            {\n                \"firstName\": \"Arvie\",\n                \"lastName\": \"Gianolini\",\n                \"email\": \"agianolinih@yahoo.co.jp\",\n                \"phoneNumber\": \"846-942-1815\",\n                \"salary\": 23000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"HUMAN_RESOURCE\"\n            },\n            {\n                \"firstName\": \"Susan\",\n                \"lastName\": \"Corker\",\n                \"email\": \"scorkerj@cornell.edu\",\n                \"phoneNumber\": \"618-863-6296\",\n                \"salary\": 19000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"HUMAN_RESOURCE\"\n            }\n        ]\n    },\n    {\n        \"companyName\": \"enoca\",\n        \"address\": \"Flora Residans Vedat Günyol Caddesi Defne Sokak No:1 Kat:25 Ofis:2501,2502, 34750 Küçükbakkalköy, Ataşehir, İstanbul Türkiye\",\n        \"email\": \"contact@enoca.com\",\n        \"phoneNumber\": \"+90 850 221 73 54\",\n        \"employeesDto\": [\n            {\n                \"firstName\": \"Giffard\",\n                \"lastName\": \"Byneth\",\n                \"email\": \"gbyneth0@yellowbook.com\",\n                \"phoneNumber\": \"783-679-2147\",\n                \"salary\": 16000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"RESEARCH\"\n            },\n            {\n                \"firstName\": \"Janna\",\n                \"lastName\": \"Plitz\",\n                \"email\": \"jplitz1@whitehouse.gov\",\n                \"phoneNumber\": \"936-560-8405\",\n                \"salary\": 23000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"SUPPORT\"\n            },\n            {\n                \"firstName\": \"Red\",\n                \"lastName\": \"Froude\",\n                \"email\": \"rfroude2@princeton.edu\",\n                \"phoneNumber\": \"758-257-4750\",\n                \"salary\": 19000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"SERVICES\"\n            },\n            {\n                \"firstName\": \"Jermaine\",\n                \"lastName\": \"Cotsford\",\n                \"email\": \"jcotsford3@themeforest.net\",\n                \"phoneNumber\": \"324-677-0234\",\n                \"salary\": 20000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"HUMAN_RESOURCE\"\n            },\n            {\n                \"firstName\": \"Vi\",\n                \"lastName\": \"Banghe\",\n                \"email\": \"vbanghe4@cdc.gov\",\n                \"phoneNumber\": \"839-886-0126\",\n                \"salary\": 18000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"SALES\"\n            },\n            {\n                \"firstName\": \"Harwilll\",\n                \"lastName\": \"Perrinchief\",\n                \"email\": \"hperrinchiefk@si.edu\",\n                \"phoneNumber\": \"954-511-2677\",\n                \"salary\": 18000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"SUPPORT\"\n            },\n            {\n                \"firstName\": \"Nathaniel\",\n                \"lastName\": \"Rathjen\",\n                \"email\": \"nrathjenl@wikispaces.com\",\n                \"phoneNumber\": \"507-965-1046\",\n                \"salary\": 18000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"RESEARCH\"\n            }\n        ]\n    },\n    {\n        \"companyName\": \"gratis\",\n        \"address\": \"gratis Küçükyalı Plaza, Aydınevler Mahallesi İnönü Caddesi No:20 Küçükyalı Ofispark B Blok - Maltepe / İSTANBUL\",\n        \"email\": \"info@gratis.com\",\n        \"phoneNumber\": \"+90 212 313 10 00\",\n        \"employeesDto\": [\n            {\n                \"firstName\": \"Mayer\",\n                \"lastName\": \"McInnerny\",\n                \"email\": \"mmcinnernyv@lulu.com\",\n                \"phoneNumber\": \"897-314-9418\",\n                \"salary\": 16000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"SALES\"\n            },\n            {\n                \"firstName\": \"Merl\",\n                \"lastName\": \"Llewellin\",\n                \"email\": \"mllewellinw@tumblr.com\",\n                \"phoneNumber\": \"702-479-8380\",\n                \"salary\": 20000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"SALES\"\n            },\n            {\n                \"firstName\": \"Harrie\",\n                \"lastName\": \"Forst\",\n                \"email\": \"hforstx@nba.com\",\n                \"phoneNumber\": \"593-127-5844\",\n                \"salary\": 18000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"SUPPORT\"\n            },\n            {\n                \"firstName\": \"Doe\",\n                \"lastName\": \"Vaulkhard\",\n                \"email\": \"dvaulkhardy@goo.ne.jp\",\n                \"phoneNumber\": \"538-466-75866\",\n                \"salary\": 23000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"ACCOUNTING\"\n            },\n            {\n                \"firstName\": \"Leonerd\",\n                \"lastName\": \"Dowling\",\n                \"email\": \"ldowlingz@zimbio.com\",\n                \"phoneNumber\": \"670-712-5316\",\n                \"salary\": 25000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"RESEARCH\"\n            }\n        ]\n    },\n    {\n        \"companyName\": \"Turkcell\",\n        \"address\": \"Turkcell Küçükyalı Plaza, Aydınevler Mahallesi İnönü Caddesi No:20 Küçükyalı Ofispark B Blok - Maltepe / İSTANBUL\",\n        \"email\": \"info@turkcell.com\",\n        \"phoneNumber\": \"+90 212 313 10 00\",\n        \"employeesDto\": [\n            {\n                \"firstName\": \"Albina\",\n                \"lastName\": \"Yegorov\",\n                \"email\": \"ayegorovm@netvibes.com\",\n                \"phoneNumber\": \"711-549-4959\",\n                \"salary\": 16000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"SALES\"\n            },\n            {\n                \"firstName\": \"Codie\",\n                \"lastName\": \"Eason\",\n                \"email\": \"ceasonn@odnoklassniki.ru\",\n                \"phoneNumber\": \"420-304-7116\",\n                \"salary\": 20000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"RESEARCH\"\n            },\n            {\n                \"firstName\": \"Bernetta\",\n                \"lastName\": \"Dash\",\n                \"email\": \"bdasho@xinhuanet.com\",\n                \"phoneNumber\": \"714-180-0949\",\n                \"salary\": 18000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"SUPPORT\"\n            },\n            {\n                \"firstName\": \"Carmina\",\n                \"lastName\": \"Duding\",\n                \"email\": \"cdudingp@nba.com\",\n                \"phoneNumber\": \"266-688-8576\",\n                \"salary\": 23000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"ACCOUNTING\"\n            },\n            {\n                \"firstName\": \"Erda\",\n                \"lastName\": \"Reide\",\n                \"email\": \"ereideq@ucla.edu\",\n                \"phoneNumber\": \"521-463-8292\",\n                \"salary\": 25000,\n                \"hireDate\": \"2023-07-23\",\n                \"department\": \"RESEARCH\"\n            }\n        ]\n    },\n    {\n        \"companyName\": \"İpragaz\",\n        \"address\": \"Atatürk Mah. Ertuğrul Gazi Sok. Metropol İstanbul Sitesi C2 Blok No:2 A/25 (Kat: 22 -24) 34758 ATAŞEHİR / İSTANBUL\",\n        \"email\": \"ipranet@ipragaz.com.tr\",\n        \"phoneNumber\": \"+90 216 593 92 00\",\n        \"employeesDto\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Company By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/company/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search Company By Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/company/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"company",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jul 2023 10:16:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"companyName\": \"Avansas\",\n    \"address\": \"Avansas Ofis Malzemeleri Tic. A.Ş. Kısıklı Mah. Ferah Cad. No:10 Kat: 4-5-6-7 Üsküdar 34692 İstanbul / Türkiye\",\n    \"email\": \"destek@avansas.com\",\n    \"phoneNumber\": \"+90 216 365 78 00\",\n    \"employeesDto\": [\n        {\n            \"firstName\": \"Laurena\",\n            \"lastName\": \"McKomb\",\n            \"email\": \"lmckomba@purevolume.com\",\n            \"phoneNumber\": \"129-682-0848\",\n            \"salary\": 16000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"SERVICES\"\n        },\n        {\n            \"firstName\": \"Lynnett\",\n            \"lastName\": \"Potteridge\",\n            \"email\": \"lpotteridgeb@ezinearticles.com\",\n            \"phoneNumber\": \"907-967-0311\",\n            \"salary\": 20000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"SALES\"\n        },\n        {\n            \"firstName\": \"Inga\",\n            \"lastName\": \"Puddefoot\",\n            \"email\": \"ipuddefoote@wordpress.org\",\n            \"phoneNumber\": \"366-845-9812\",\n            \"salary\": 21000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"ACCOUNTING\"\n        },\n        {\n            \"firstName\": \"Enoch\",\n            \"lastName\": \"Halsey\",\n            \"email\": \"ehalseyf@so-net.ne.jp\",\n            \"phoneNumber\": \"497-972-9016\",\n            \"salary\": 25000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"ACCOUNTING\"\n        },\n        {\n            \"firstName\": \"Norean\",\n            \"lastName\": \"Bramer\",\n            \"email\": \"nbramerg@surveymonkey.com\",\n            \"phoneNumber\": \"873-670-9484\",\n            \"salary\": 17000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"HUMAN_RESOURCE\"\n        },\n        {\n            \"firstName\": \"Arvie\",\n            \"lastName\": \"Gianolini\",\n            \"email\": \"agianolinih@yahoo.co.jp\",\n            \"phoneNumber\": \"846-942-1815\",\n            \"salary\": 23000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"HUMAN_RESOURCE\"\n        },\n        {\n            \"firstName\": \"Susan\",\n            \"lastName\": \"Corker\",\n            \"email\": \"scorkerj@cornell.edu\",\n            \"phoneNumber\": \"618-863-6296\",\n            \"salary\": 19000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"HUMAN_RESOURCE\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Company By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/company/name/enoca",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"name",
+								"enoca"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search Enoca By Name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/company/name/enoca",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"company",
+										"name",
+										"enoca"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jul 2023 10:14:26 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"companyName\": \"enoca\",\n    \"address\": \"Flora Residans Vedat Günyol Caddesi Defne Sokak No:1 Kat:25 Ofis:2501,2502, 34750 Küçükbakkalköy, Ataşehir, İstanbul Türkiye\",\n    \"email\": \"contact@enoca.com\",\n    \"phoneNumber\": \"+90 850 221 73 54\",\n    \"employeesDto\": [\n        {\n            \"firstName\": \"Giffard\",\n            \"lastName\": \"Byneth\",\n            \"email\": \"gbyneth0@yellowbook.com\",\n            \"phoneNumber\": \"783-679-2147\",\n            \"salary\": 16000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"RESEARCH\"\n        },\n        {\n            \"firstName\": \"Janna\",\n            \"lastName\": \"Plitz\",\n            \"email\": \"jplitz1@whitehouse.gov\",\n            \"phoneNumber\": \"936-560-8405\",\n            \"salary\": 23000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"SUPPORT\"\n        },\n        {\n            \"firstName\": \"Red\",\n            \"lastName\": \"Froude\",\n            \"email\": \"rfroude2@princeton.edu\",\n            \"phoneNumber\": \"758-257-4750\",\n            \"salary\": 19000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"SERVICES\"\n        },\n        {\n            \"firstName\": \"Jermaine\",\n            \"lastName\": \"Cotsford\",\n            \"email\": \"jcotsford3@themeforest.net\",\n            \"phoneNumber\": \"324-677-0234\",\n            \"salary\": 20000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"HUMAN_RESOURCE\"\n        },\n        {\n            \"firstName\": \"Vi\",\n            \"lastName\": \"Banghe\",\n            \"email\": \"vbanghe4@cdc.gov\",\n            \"phoneNumber\": \"839-886-0126\",\n            \"salary\": 18000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"SALES\"\n        },\n        {\n            \"firstName\": \"Harwilll\",\n            \"lastName\": \"Perrinchief\",\n            \"email\": \"hperrinchiefk@si.edu\",\n            \"phoneNumber\": \"954-511-2677\",\n            \"salary\": 18000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"SUPPORT\"\n        },\n        {\n            \"firstName\": \"Nathaniel\",\n            \"lastName\": \"Rathjen\",\n            \"email\": \"nrathjenl@wikispaces.com\",\n            \"phoneNumber\": \"507-965-1046\",\n            \"salary\": 18000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"RESEARCH\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Company By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/company/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Company By Id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"companyName\": \"DENEME AŞ\",\r\n    \"address\": \"İstanbul Türkiye\",\r\n    \"email\": \"contact@deneme.com\",\r\n    \"phoneNumber\": \"+90 354 221 73 54\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/company/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"company",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jul 2023 10:23:01 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"companyName\": \"DENEME AŞ\",\n    \"address\": \"İstanbul Türkiye\",\n    \"email\": \"contact@deneme.com\",\n    \"phoneNumber\": \"+90 354 221 73 54\",\n    \"employeesDto\": [\n        {\n            \"firstName\": \"Laurena\",\n            \"lastName\": \"McKomb\",\n            \"email\": \"lmckomba@purevolume.com\",\n            \"phoneNumber\": \"129-682-0848\",\n            \"salary\": 16000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"SERVICES\"\n        },\n        {\n            \"firstName\": \"Lynnett\",\n            \"lastName\": \"Potteridge\",\n            \"email\": \"lpotteridgeb@ezinearticles.com\",\n            \"phoneNumber\": \"907-967-0311\",\n            \"salary\": 20000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"SALES\"\n        },\n        {\n            \"firstName\": \"Inga\",\n            \"lastName\": \"Puddefoot\",\n            \"email\": \"ipuddefoote@wordpress.org\",\n            \"phoneNumber\": \"366-845-9812\",\n            \"salary\": 21000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"ACCOUNTING\"\n        },\n        {\n            \"firstName\": \"Enoch\",\n            \"lastName\": \"Halsey\",\n            \"email\": \"ehalseyf@so-net.ne.jp\",\n            \"phoneNumber\": \"497-972-9016\",\n            \"salary\": 25000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"ACCOUNTING\"\n        },\n        {\n            \"firstName\": \"Norean\",\n            \"lastName\": \"Bramer\",\n            \"email\": \"nbramerg@surveymonkey.com\",\n            \"phoneNumber\": \"873-670-9484\",\n            \"salary\": 17000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"HUMAN_RESOURCE\"\n        },\n        {\n            \"firstName\": \"Arvie\",\n            \"lastName\": \"Gianolini\",\n            \"email\": \"agianolinih@yahoo.co.jp\",\n            \"phoneNumber\": \"846-942-1815\",\n            \"salary\": 23000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"HUMAN_RESOURCE\"\n        },\n        {\n            \"firstName\": \"Susan\",\n            \"lastName\": \"Corker\",\n            \"email\": \"scorkerj@cornell.edu\",\n            \"phoneNumber\": \"618-863-6296\",\n            \"salary\": 19000,\n            \"hireDate\": \"2023-07-23\",\n            \"department\": \"HUMAN_RESOURCE\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Company By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/company/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Company By Id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/company/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"company",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jul 2023 10:24:05 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "Hire Employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\": \"enoca\",\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"john.doe@example.com\",\r\n    \"phoneNumber\": \"+12 345 356 67 89\",\r\n    \"salary\": 50000.0,\r\n    \"department\": \"ACCOUNTING\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "hired someone to Enoca",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"companyName\": \"enoca\",\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"john.doe@example.com\",\r\n    \"phoneNumber\": \"+12 345 356 67 89\",\r\n    \"salary\": 50000.0,\r\n    \"department\": \"ACCOUNTING\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/employee",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"employee"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jul 2023 10:34:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"phoneNumber\": \"+12 345 356 67 89\",\n    \"salary\": 0,\n    \"hireDate\": \"2023-07-23\",\n    \"department\": \"ACCOUNTING\",\n    \"companyDto\": {\n        \"companyName\": \"enoca\",\n        \"address\": \"Flora Residans Vedat Günyol Caddesi Defne Sokak No:1 Kat:25 Ofis:2501,2502, 34750 Küçükbakkalköy, Ataşehir, İstanbul Türkiye\",\n        \"email\": \"contact@enoca.com\",\n        \"phoneNumber\": \"+90 850 221 73 54\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Employee List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/employee",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Employees",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/employee",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"employee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jul 2023 10:38:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"firstName\": \"Giffard\",\n        \"lastName\": \"Byneth\",\n        \"email\": \"gbyneth0@yellowbook.com\",\n        \"phoneNumber\": \"783-679-2147\",\n        \"salary\": 16000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"RESEARCH\",\n        \"companyDto\": {\n            \"companyName\": \"enoca\",\n            \"address\": \"Flora Residans Vedat Günyol Caddesi Defne Sokak No:1 Kat:25 Ofis:2501,2502, 34750 Küçükbakkalköy, Ataşehir, İstanbul Türkiye\",\n            \"email\": \"contact@enoca.com\",\n            \"phoneNumber\": \"+90 850 221 73 54\"\n        }\n    },\n    {\n        \"firstName\": \"Janna\",\n        \"lastName\": \"Plitz\",\n        \"email\": \"jplitz1@whitehouse.gov\",\n        \"phoneNumber\": \"936-560-8405\",\n        \"salary\": 23000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"SUPPORT\",\n        \"companyDto\": {\n            \"companyName\": \"enoca\",\n            \"address\": \"Flora Residans Vedat Günyol Caddesi Defne Sokak No:1 Kat:25 Ofis:2501,2502, 34750 Küçükbakkalköy, Ataşehir, İstanbul Türkiye\",\n            \"email\": \"contact@enoca.com\",\n            \"phoneNumber\": \"+90 850 221 73 54\"\n        }\n    },\n    {\n        \"firstName\": \"Red\",\n        \"lastName\": \"Froude\",\n        \"email\": \"rfroude2@princeton.edu\",\n        \"phoneNumber\": \"758-257-4750\",\n        \"salary\": 19000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"SERVICES\",\n        \"companyDto\": {\n            \"companyName\": \"enoca\",\n            \"address\": \"Flora Residans Vedat Günyol Caddesi Defne Sokak No:1 Kat:25 Ofis:2501,2502, 34750 Küçükbakkalköy, Ataşehir, İstanbul Türkiye\",\n            \"email\": \"contact@enoca.com\",\n            \"phoneNumber\": \"+90 850 221 73 54\"\n        }\n    },\n    {\n        \"firstName\": \"Jermaine\",\n        \"lastName\": \"Cotsford\",\n        \"email\": \"jcotsford3@themeforest.net\",\n        \"phoneNumber\": \"324-677-0234\",\n        \"salary\": 20000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"HUMAN_RESOURCE\",\n        \"companyDto\": {\n            \"companyName\": \"enoca\",\n            \"address\": \"Flora Residans Vedat Günyol Caddesi Defne Sokak No:1 Kat:25 Ofis:2501,2502, 34750 Küçükbakkalköy, Ataşehir, İstanbul Türkiye\",\n            \"email\": \"contact@enoca.com\",\n            \"phoneNumber\": \"+90 850 221 73 54\"\n        }\n    },\n    {\n        \"firstName\": \"Vi\",\n        \"lastName\": \"Banghe\",\n        \"email\": \"vbanghe4@cdc.gov\",\n        \"phoneNumber\": \"839-886-0126\",\n        \"salary\": 18000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"SALES\",\n        \"companyDto\": {\n            \"companyName\": \"enoca\",\n            \"address\": \"Flora Residans Vedat Günyol Caddesi Defne Sokak No:1 Kat:25 Ofis:2501,2502, 34750 Küçükbakkalköy, Ataşehir, İstanbul Türkiye\",\n            \"email\": \"contact@enoca.com\",\n            \"phoneNumber\": \"+90 850 221 73 54\"\n        }\n    },\n    {\n        \"firstName\": \"Harwilll\",\n        \"lastName\": \"Perrinchief\",\n        \"email\": \"hperrinchiefk@si.edu\",\n        \"phoneNumber\": \"954-511-2677\",\n        \"salary\": 18000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"SUPPORT\",\n        \"companyDto\": {\n            \"companyName\": \"enoca\",\n            \"address\": \"Flora Residans Vedat Günyol Caddesi Defne Sokak No:1 Kat:25 Ofis:2501,2502, 34750 Küçükbakkalköy, Ataşehir, İstanbul Türkiye\",\n            \"email\": \"contact@enoca.com\",\n            \"phoneNumber\": \"+90 850 221 73 54\"\n        }\n    },\n    {\n        \"firstName\": \"Nathaniel\",\n        \"lastName\": \"Rathjen\",\n        \"email\": \"nrathjenl@wikispaces.com\",\n        \"phoneNumber\": \"507-965-1046\",\n        \"salary\": 18000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"RESEARCH\",\n        \"companyDto\": {\n            \"companyName\": \"enoca\",\n            \"address\": \"Flora Residans Vedat Günyol Caddesi Defne Sokak No:1 Kat:25 Ofis:2501,2502, 34750 Küçükbakkalköy, Ataşehir, İstanbul Türkiye\",\n            \"email\": \"contact@enoca.com\",\n            \"phoneNumber\": \"+90 850 221 73 54\"\n        }\n    },\n    {\n        \"firstName\": \"Mayer\",\n        \"lastName\": \"McInnerny\",\n        \"email\": \"mmcinnernyv@lulu.com\",\n        \"phoneNumber\": \"897-314-9418\",\n        \"salary\": 16000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"SALES\",\n        \"companyDto\": {\n            \"companyName\": \"gratis\",\n            \"address\": \"gratis Küçükyalı Plaza, Aydınevler Mahallesi İnönü Caddesi No:20 Küçükyalı Ofispark B Blok - Maltepe / İSTANBUL\",\n            \"email\": \"info@gratis.com\",\n            \"phoneNumber\": \"+90 212 313 10 00\"\n        }\n    },\n    {\n        \"firstName\": \"Merl\",\n        \"lastName\": \"Llewellin\",\n        \"email\": \"mllewellinw@tumblr.com\",\n        \"phoneNumber\": \"702-479-8380\",\n        \"salary\": 20000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"SALES\",\n        \"companyDto\": {\n            \"companyName\": \"gratis\",\n            \"address\": \"gratis Küçükyalı Plaza, Aydınevler Mahallesi İnönü Caddesi No:20 Küçükyalı Ofispark B Blok - Maltepe / İSTANBUL\",\n            \"email\": \"info@gratis.com\",\n            \"phoneNumber\": \"+90 212 313 10 00\"\n        }\n    },\n    {\n        \"firstName\": \"Harrie\",\n        \"lastName\": \"Forst\",\n        \"email\": \"hforstx@nba.com\",\n        \"phoneNumber\": \"593-127-5844\",\n        \"salary\": 18000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"SUPPORT\",\n        \"companyDto\": {\n            \"companyName\": \"gratis\",\n            \"address\": \"gratis Küçükyalı Plaza, Aydınevler Mahallesi İnönü Caddesi No:20 Küçükyalı Ofispark B Blok - Maltepe / İSTANBUL\",\n            \"email\": \"info@gratis.com\",\n            \"phoneNumber\": \"+90 212 313 10 00\"\n        }\n    },\n    {\n        \"firstName\": \"Doe\",\n        \"lastName\": \"Vaulkhard\",\n        \"email\": \"dvaulkhardy@goo.ne.jp\",\n        \"phoneNumber\": \"538-466-75866\",\n        \"salary\": 23000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"ACCOUNTING\",\n        \"companyDto\": {\n            \"companyName\": \"gratis\",\n            \"address\": \"gratis Küçükyalı Plaza, Aydınevler Mahallesi İnönü Caddesi No:20 Küçükyalı Ofispark B Blok - Maltepe / İSTANBUL\",\n            \"email\": \"info@gratis.com\",\n            \"phoneNumber\": \"+90 212 313 10 00\"\n        }\n    },\n    {\n        \"firstName\": \"Leonerd\",\n        \"lastName\": \"Dowling\",\n        \"email\": \"ldowlingz@zimbio.com\",\n        \"phoneNumber\": \"670-712-5316\",\n        \"salary\": 25000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"RESEARCH\",\n        \"companyDto\": {\n            \"companyName\": \"gratis\",\n            \"address\": \"gratis Küçükyalı Plaza, Aydınevler Mahallesi İnönü Caddesi No:20 Küçükyalı Ofispark B Blok - Maltepe / İSTANBUL\",\n            \"email\": \"info@gratis.com\",\n            \"phoneNumber\": \"+90 212 313 10 00\"\n        }\n    },\n    {\n        \"firstName\": \"Albina\",\n        \"lastName\": \"Yegorov\",\n        \"email\": \"ayegorovm@netvibes.com\",\n        \"phoneNumber\": \"711-549-4959\",\n        \"salary\": 16000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"SALES\",\n        \"companyDto\": {\n            \"companyName\": \"Turkcell\",\n            \"address\": \"Turkcell Küçükyalı Plaza, Aydınevler Mahallesi İnönü Caddesi No:20 Küçükyalı Ofispark B Blok - Maltepe / İSTANBUL\",\n            \"email\": \"info@turkcell.com\",\n            \"phoneNumber\": \"+90 212 313 10 00\"\n        }\n    },\n    {\n        \"firstName\": \"Codie\",\n        \"lastName\": \"Eason\",\n        \"email\": \"ceasonn@odnoklassniki.ru\",\n        \"phoneNumber\": \"420-304-7116\",\n        \"salary\": 20000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"RESEARCH\",\n        \"companyDto\": {\n            \"companyName\": \"Turkcell\",\n            \"address\": \"Turkcell Küçükyalı Plaza, Aydınevler Mahallesi İnönü Caddesi No:20 Küçükyalı Ofispark B Blok - Maltepe / İSTANBUL\",\n            \"email\": \"info@turkcell.com\",\n            \"phoneNumber\": \"+90 212 313 10 00\"\n        }\n    },\n    {\n        \"firstName\": \"Bernetta\",\n        \"lastName\": \"Dash\",\n        \"email\": \"bdasho@xinhuanet.com\",\n        \"phoneNumber\": \"714-180-0949\",\n        \"salary\": 18000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"SUPPORT\",\n        \"companyDto\": {\n            \"companyName\": \"Turkcell\",\n            \"address\": \"Turkcell Küçükyalı Plaza, Aydınevler Mahallesi İnönü Caddesi No:20 Küçükyalı Ofispark B Blok - Maltepe / İSTANBUL\",\n            \"email\": \"info@turkcell.com\",\n            \"phoneNumber\": \"+90 212 313 10 00\"\n        }\n    },\n    {\n        \"firstName\": \"Carmina\",\n        \"lastName\": \"Duding\",\n        \"email\": \"cdudingp@nba.com\",\n        \"phoneNumber\": \"266-688-8576\",\n        \"salary\": 23000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"ACCOUNTING\",\n        \"companyDto\": {\n            \"companyName\": \"Turkcell\",\n            \"address\": \"Turkcell Küçükyalı Plaza, Aydınevler Mahallesi İnönü Caddesi No:20 Küçükyalı Ofispark B Blok - Maltepe / İSTANBUL\",\n            \"email\": \"info@turkcell.com\",\n            \"phoneNumber\": \"+90 212 313 10 00\"\n        }\n    },\n    {\n        \"firstName\": \"Erda\",\n        \"lastName\": \"Reide\",\n        \"email\": \"ereideq@ucla.edu\",\n        \"phoneNumber\": \"521-463-8292\",\n        \"salary\": 25000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"RESEARCH\",\n        \"companyDto\": {\n            \"companyName\": \"Turkcell\",\n            \"address\": \"Turkcell Küçükyalı Plaza, Aydınevler Mahallesi İnönü Caddesi No:20 Küçükyalı Ofispark B Blok - Maltepe / İSTANBUL\",\n            \"email\": \"info@turkcell.com\",\n            \"phoneNumber\": \"+90 212 313 10 00\"\n        }\n    },\n    {\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"email\": \"john.doe@example.com\",\n        \"phoneNumber\": \"+12 345 356 67 89\",\n        \"salary\": 0,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"ACCOUNTING\",\n        \"companyDto\": {\n            \"companyName\": \"enoca\",\n            \"address\": \"Flora Residans Vedat Günyol Caddesi Defne Sokak No:1 Kat:25 Ofis:2501,2502, 34750 Küçükbakkalköy, Ataşehir, İstanbul Türkiye\",\n            \"email\": \"contact@enoca.com\",\n            \"phoneNumber\": \"+90 850 221 73 54\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get All Employees in Company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/employee/company/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Employees in Company",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/employee/company/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"employee",
+										"company",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jul 2023 10:40:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"firstName\": \"Laurena\",\n        \"lastName\": \"McKomb\",\n        \"email\": \"lmckomba@purevolume.com\",\n        \"phoneNumber\": \"129-682-0848\",\n        \"salary\": 16000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"SERVICES\",\n        \"companyDto\": {\n            \"companyName\": \"Avansas\",\n            \"address\": \"Avansas Ofis Malzemeleri Tic. A.Ş. Kısıklı Mah. Ferah Cad. No:10 Kat: 4-5-6-7 Üsküdar 34692 İstanbul / Türkiye\",\n            \"email\": \"destek@avansas.com\",\n            \"phoneNumber\": \"+90 216 365 78 00\"\n        }\n    },\n    {\n        \"firstName\": \"Lynnett\",\n        \"lastName\": \"Potteridge\",\n        \"email\": \"lpotteridgeb@ezinearticles.com\",\n        \"phoneNumber\": \"907-967-0311\",\n        \"salary\": 20000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"SALES\",\n        \"companyDto\": {\n            \"companyName\": \"Avansas\",\n            \"address\": \"Avansas Ofis Malzemeleri Tic. A.Ş. Kısıklı Mah. Ferah Cad. No:10 Kat: 4-5-6-7 Üsküdar 34692 İstanbul / Türkiye\",\n            \"email\": \"destek@avansas.com\",\n            \"phoneNumber\": \"+90 216 365 78 00\"\n        }\n    },\n    {\n        \"firstName\": \"Inga\",\n        \"lastName\": \"Puddefoot\",\n        \"email\": \"ipuddefoote@wordpress.org\",\n        \"phoneNumber\": \"366-845-9812\",\n        \"salary\": 21000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"ACCOUNTING\",\n        \"companyDto\": {\n            \"companyName\": \"Avansas\",\n            \"address\": \"Avansas Ofis Malzemeleri Tic. A.Ş. Kısıklı Mah. Ferah Cad. No:10 Kat: 4-5-6-7 Üsküdar 34692 İstanbul / Türkiye\",\n            \"email\": \"destek@avansas.com\",\n            \"phoneNumber\": \"+90 216 365 78 00\"\n        }\n    },\n    {\n        \"firstName\": \"Enoch\",\n        \"lastName\": \"Halsey\",\n        \"email\": \"ehalseyf@so-net.ne.jp\",\n        \"phoneNumber\": \"497-972-9016\",\n        \"salary\": 25000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"ACCOUNTING\",\n        \"companyDto\": {\n            \"companyName\": \"Avansas\",\n            \"address\": \"Avansas Ofis Malzemeleri Tic. A.Ş. Kısıklı Mah. Ferah Cad. No:10 Kat: 4-5-6-7 Üsküdar 34692 İstanbul / Türkiye\",\n            \"email\": \"destek@avansas.com\",\n            \"phoneNumber\": \"+90 216 365 78 00\"\n        }\n    },\n    {\n        \"firstName\": \"Norean\",\n        \"lastName\": \"Bramer\",\n        \"email\": \"nbramerg@surveymonkey.com\",\n        \"phoneNumber\": \"873-670-9484\",\n        \"salary\": 17000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"HUMAN_RESOURCE\",\n        \"companyDto\": {\n            \"companyName\": \"Avansas\",\n            \"address\": \"Avansas Ofis Malzemeleri Tic. A.Ş. Kısıklı Mah. Ferah Cad. No:10 Kat: 4-5-6-7 Üsküdar 34692 İstanbul / Türkiye\",\n            \"email\": \"destek@avansas.com\",\n            \"phoneNumber\": \"+90 216 365 78 00\"\n        }\n    },\n    {\n        \"firstName\": \"Arvie\",\n        \"lastName\": \"Gianolini\",\n        \"email\": \"agianolinih@yahoo.co.jp\",\n        \"phoneNumber\": \"846-942-1815\",\n        \"salary\": 23000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"HUMAN_RESOURCE\",\n        \"companyDto\": {\n            \"companyName\": \"Avansas\",\n            \"address\": \"Avansas Ofis Malzemeleri Tic. A.Ş. Kısıklı Mah. Ferah Cad. No:10 Kat: 4-5-6-7 Üsküdar 34692 İstanbul / Türkiye\",\n            \"email\": \"destek@avansas.com\",\n            \"phoneNumber\": \"+90 216 365 78 00\"\n        }\n    },\n    {\n        \"firstName\": \"Susan\",\n        \"lastName\": \"Corker\",\n        \"email\": \"scorkerj@cornell.edu\",\n        \"phoneNumber\": \"618-863-6296\",\n        \"salary\": 19000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"HUMAN_RESOURCE\",\n        \"companyDto\": {\n            \"companyName\": \"Avansas\",\n            \"address\": \"Avansas Ofis Malzemeleri Tic. A.Ş. Kısıklı Mah. Ferah Cad. No:10 Kat: 4-5-6-7 Üsküdar 34692 İstanbul / Türkiye\",\n            \"email\": \"destek@avansas.com\",\n            \"phoneNumber\": \"+90 216 365 78 00\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get All Department Employees",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Get All Department Employees",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/employee/department?companyName=enoca&department=SALES",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"employee",
+										"department"
+									],
+									"query": [
+										{
+											"key": "companyName",
+											"value": "enoca"
+										},
+										{
+											"key": "department",
+											"value": "SALES"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jul 2023 10:42:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"firstName\": \"Vi\",\n        \"lastName\": \"Banghe\",\n        \"email\": \"vbanghe4@cdc.gov\",\n        \"phoneNumber\": \"839-886-0126\",\n        \"salary\": 18000,\n        \"hireDate\": \"2023-07-23\",\n        \"department\": \"SALES\",\n        \"companyDto\": {\n            \"companyName\": \"enoca\",\n            \"address\": \"Flora Residans Vedat Günyol Caddesi Defne Sokak No:1 Kat:25 Ofis:2501,2502, 34750 Küçükbakkalköy, Ataşehir, İstanbul Türkiye\",\n            \"email\": \"contact@enoca.com\",\n            \"phoneNumber\": \"+90 850 221 73 54\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Employee By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/employee/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Employee By Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/employee/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"employee",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jul 2023 10:43:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"firstName\": \"Laurena\",\n    \"lastName\": \"McKomb\",\n    \"email\": \"lmckomba@purevolume.com\",\n    \"phoneNumber\": \"129-682-0848\",\n    \"salary\": 16000,\n    \"hireDate\": \"2023-07-23\",\n    \"department\": \"SERVICES\",\n    \"companyDto\": {\n        \"companyName\": \"Avansas\",\n        \"address\": \"Avansas Ofis Malzemeleri Tic. A.Ş. Kısıklı Mah. Ferah Cad. No:10 Kat: 4-5-6-7 Üsküdar 34692 İstanbul / Türkiye\",\n        \"email\": \"destek@avansas.com\",\n        \"phoneNumber\": \"+90 216 365 78 00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Employee By Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"john.doe@example.com\",\r\n    \"phoneNumber\": \"+12 345 356 67 89\",\r\n    \"salary\": 50000.0,\r\n    \"department\": \"ACCOUNTING\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Employee By Id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"john.doe@example.com\",\r\n    \"phoneNumber\": \"+12 345 356 67 89\",\r\n    \"salary\": 50000.0,\r\n    \"department\": \"ACCOUNTING\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/employee/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"employee",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jul 2023 10:48:52 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"phoneNumber\": \"+12 345 356 67 89\",\n    \"salary\": 50000,\n    \"hireDate\": \"2023-07-23\",\n    \"department\": \"ACCOUNTING\",\n    \"companyDto\": {\n        \"companyName\": \"Avansas\",\n        \"address\": \"Avansas Ofis Malzemeleri Tic. A.Ş. Kısıklı Mah. Ferah Cad. No:10 Kat: 4-5-6-7 Üsküdar 34692 İstanbul / Türkiye\",\n        \"email\": \"destek@avansas.com\",\n        \"phoneNumber\": \"+90 216 365 78 00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Employee By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/employee/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Employee By Id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/employee/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"employee",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jul 2023 10:52:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Transfer Employee Another Company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/employee/transfer?companyName=Avansas&employeeId=8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"transfer"
+							],
+							"query": [
+								{
+									"key": "companyName",
+									"value": "Avansas"
+								},
+								{
+									"key": "employeeId",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Transfer Employee to Another Company",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/employee/transfer?companyName=Avansas&employeeId=8",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"employee",
+										"transfer"
+									],
+									"query": [
+										{
+											"key": "companyName",
+											"value": "Avansas"
+										},
+										{
+											"key": "employeeId",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jul 2023 11:14:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"firstName\": \"Giffard\",\n    \"lastName\": \"Byneth\",\n    \"email\": \"gbyneth0@yellowbook.com\",\n    \"phoneNumber\": \"783-679-2147\",\n    \"salary\": 16000,\n    \"hireDate\": \"2023-07-23\",\n    \"department\": \"RESEARCH\",\n    \"companyDto\": {\n        \"companyName\": \"Avansas\",\n        \"address\": \"Avansas Ofis Malzemeleri Tic. A.Ş. Kısıklı Mah. Ferah Cad. No:10 Kat: 4-5-6-7 Üsküdar 34692 İstanbul / Türkiye\",\n        \"email\": \"destek@avansas.com\",\n        \"phoneNumber\": \"+90 216 365 78 00\"\n    }\n}"
+						},
+						{
+							"name": "Exception throwed when you try to transfer same Company",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/employee/transfer?companyName=Avansas&employeeId=8",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"employee",
+										"transfer"
+									],
+									"query": [
+										{
+											"key": "companyName",
+											"value": "Avansas"
+										},
+										{
+											"key": "employeeId",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Jul 2023 11:15:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "The Employee Giffard is already employed at Avansas Company"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}

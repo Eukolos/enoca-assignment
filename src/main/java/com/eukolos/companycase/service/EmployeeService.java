@@ -2,6 +2,7 @@ package com.eukolos.companycase.service;
 
 import com.eukolos.companycase.dto.EmployeeCreateRequest;
 import com.eukolos.companycase.dto.EmployeeDto;
+import com.eukolos.companycase.dto.EmployeeUpdateRequest;
 import com.eukolos.companycase.entity.Company;
 import com.eukolos.companycase.entity.Department;
 import com.eukolos.companycase.entity.Employee;
@@ -11,7 +12,6 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.rmi.AlreadyBoundException;
 import java.util.List;
 
 @Service
@@ -59,20 +59,20 @@ public class EmployeeService {
                 .orElseThrow(() -> new EntityNotFoundException("Employee with ID "+id+" not founded")));
     }
 
-    public EmployeeDto updateEmployeeById(Long id, EmployeeCreateRequest employeeCreateRequest) {
+    public EmployeeDto updateEmployeeById(Long id, EmployeeUpdateRequest employeeUpdateRequest) {
         Employee employee = repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Employee with ID "+id+" not founded"));
         return EmployeeDto.toDto(
                 repository.save(
                         Employee.builder()
                                 .id(employee.getId())
-                                .firstName(employeeCreateRequest.firstName())
-                                .lastName(employeeCreateRequest.lastName())
-                                .email(employeeCreateRequest.email())
-                                .salary(employeeCreateRequest.salary())
-                                .phoneNumber(employeeCreateRequest.phoneNumber())
+                                .firstName(employeeUpdateRequest.firstName())
+                                .lastName(employeeUpdateRequest.lastName())
+                                .email(employeeUpdateRequest.email())
+                                .salary(employeeUpdateRequest.salary())
+                                .phoneNumber(employeeUpdateRequest.phoneNumber())
                                 .hireDate(employee.getHireDate())
-                                .department(employeeCreateRequest.department())
+                                .department(employeeUpdateRequest.department())
                                 .company(employee.getCompany())
                                 .build()
                 )

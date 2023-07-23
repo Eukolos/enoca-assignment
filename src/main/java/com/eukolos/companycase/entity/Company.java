@@ -2,7 +2,6 @@ package com.eukolos.companycase.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.List;
 @Entity
 @Getter
 // @Setter breaks immutability
-@SuperBuilder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Company {

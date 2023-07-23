@@ -1,6 +1,5 @@
 package com.eukolos.companycase.exception;
 
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -32,10 +31,6 @@ public class GeneralExceptionAdvice extends ResponseEntityExceptionHandler {
         });
         logger.info(String.format("Api validation error: %s",errors));
         return new ResponseEntity<>(errors, ex.getStatusCode());
-    }
-    @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<String> handle(EntityNotFoundException exception) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
 
     @ExceptionHandler(AlreadyExistInCompanyException.class)

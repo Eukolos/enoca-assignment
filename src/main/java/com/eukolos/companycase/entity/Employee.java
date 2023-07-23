@@ -2,9 +2,9 @@ package com.eukolos.companycase.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Entity
 @Getter
 // @Setter breaks immutability
-@SuperBuilder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Employee {

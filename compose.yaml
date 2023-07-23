@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.8'
 
 services:
   postgres:
@@ -18,7 +18,3 @@ services:
       PGADMIN_DEFAULT_PASSWORD: root
     ports:
       - "5050:80"
-  app:
-    image: docker.io/library/company-case:0.0.1-SNAPSHOT
-    ports:
-      - "8080:8080"

@@ -2,8 +2,10 @@ package com.eukolos.companycase.controller;
 
 import com.eukolos.companycase.dto.EmployeeCreateRequest;
 import com.eukolos.companycase.dto.EmployeeDto;
+import com.eukolos.companycase.dto.EmployeeUpdateRequest;
 import com.eukolos.companycase.entity.Department;
 import com.eukolos.companycase.service.EmployeeService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +22,7 @@ public class EmployeeController {
     // Not needed ResponseEntity cause handled thanx to ResponseBody from RestController
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public EmployeeDto hireEmployee(@RequestBody EmployeeCreateRequest request) {
+    public EmployeeDto hireEmployee(@RequestBody @Valid EmployeeCreateRequest request) {
         return service.hireEmployee(request);
     }
 
@@ -50,8 +52,8 @@ public class EmployeeController {
     @PutMapping("/{id}")
     public EmployeeDto updateEmployeeById(
             @PathVariable Long id,
-            @RequestBody EmployeeCreateRequest employeeCreateRequest) {
-        return service.updateEmployeeById(id, employeeCreateRequest);
+            @RequestBody @Valid EmployeeUpdateRequest employeeUpdateRequest) {
+        return service.updateEmployeeById(id, employeeUpdateRequest);
     }
 
     @DeleteMapping("/{id}")
