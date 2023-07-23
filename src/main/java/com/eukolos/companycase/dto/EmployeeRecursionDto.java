@@ -3,7 +3,6 @@ package com.eukolos.companycase.dto;
 import com.eukolos.companycase.entity.Department;
 import com.eukolos.companycase.entity.Employee;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
@@ -15,7 +14,7 @@ public record EmployeeRecursionDto(
         @NotNull String firstName,
         @NotNull String lastName,
         @Email String email,
-        @Max(20) @NotNull String phoneNumber,
+        @NotNull String phoneNumber,
         @NotNull double salary,
         LocalDate hireDate,
         Department department

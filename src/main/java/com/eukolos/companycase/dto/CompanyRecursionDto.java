@@ -3,8 +3,6 @@ package com.eukolos.companycase.dto;
 
 import com.eukolos.companycase.entity.Company;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
@@ -12,10 +10,10 @@ import java.util.List;
 import java.util.Optional;
 
 public record CompanyRecursionDto(
-        @Min(3) String companyName,
+        @NotNull String companyName,
         String address,
         @Email String email,
-        @Max(20) @NotNull  String phoneNumber
+        @NotNull  String phoneNumber
 ) {
     public static CompanyRecursionDto toDto(Company company) {
         return new CompanyRecursionDto(

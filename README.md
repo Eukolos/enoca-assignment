@@ -14,7 +14,7 @@
 - [Spring Framework](https://docs.spring.io/spring-framework/docs/current/reference/html/)
     - [Spring Boot](https://spring.io/projects/spring-boot)
     - [Spring Web](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html)
-    - [Spring Data](https://spring.io/projects/spring-data-jpa)
+    - [Spring JPA](https://spring.io/projects/spring-data-jpa)
     - [Spring Validation](https://docs.spring.io/spring-framework/docs/4.1.x/spring-framework-reference/html/validation.html)
     - [Spring Test](https://docs.spring.io/spring-boot/docs/1.5.2.RELEASE/reference/html/boot-features-testing.html)
     - [TestContainer](https://testcontainers.com/)
