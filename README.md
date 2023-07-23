@@ -5,11 +5,10 @@
 
 - [Dependencies Used](#dependencies-used)
 - [Run the App](#🔨-run-the-app)
-- [Test App on Postman](#test-app-on-postman)
 - [Tree of Layered Structure](#tree-of-layered-structure)
 - [Testing](#testing)
-- [Contributing](#contributing)
-- [License](#license)
+- [Test App on Postman](#test-app-on-postman)
+- [Contact](#contact)
 
 ## Dependencies Used
 - [Spring Framework](https://docs.spring.io/spring-framework/docs/current/reference/html/)
@@ -125,3 +124,11 @@ test
 - [**Check Endpoints on Postman WebSite**](https://documenter.getpostman.com/view/20436403/2s946mZpXo)
 - [**Import Endpoints on your Postman** copy link](https://api.postman.com/collections/20436403-f8c43a7b-9ce8-40ed-a7e8-6a130a18159c?access_key=PMAT-01H61BPSATH41C0QW1DF86AT8S)
 - [**Import Endpoints on your Postman** download data](https://github.com/Eukolos/enoca-assignment/tree/master/postman)
+
+## Contact
+
+This project was created by [Eukolos](https://github.com/Eukolos). Contributions are welcome!
+
+If you have any questions or suggestions, feel free to contact the project maintainer at eminaksoy35@gmail.com.
+
+website: [eminksy.me](https://eminksy.me/)
