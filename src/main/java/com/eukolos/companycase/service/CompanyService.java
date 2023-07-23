@@ -1,5 +1,6 @@
 package com.eukolos.companycase.service;
 
+import com.eukolos.companycase.dto.CompanyCreateRequest;
 import com.eukolos.companycase.dto.CompanyDto;
 import com.eukolos.companycase.entity.Company;
 import com.eukolos.companycase.repository.CompanyRepository;
@@ -17,8 +18,8 @@ public class CompanyService {
 
     private final CompanyRepository repository;
 
-    public CompanyDto saveCompany(CompanyDto companyDto) {
-        return CompanyDto.toDto(repository.save(CompanyDto.toEntity(companyDto)));
+    public CompanyDto saveCompany(CompanyCreateRequest companyCreateRequest) {
+        return CompanyDto.toDto(repository.save(CompanyCreateRequest.toEntity(companyCreateRequest)));
     }
 
     // not recommended
@@ -38,17 +39,17 @@ public class CompanyService {
                 .orElseThrow(() -> new EntityNotFoundException("Company with name "+companyName+" not founded"));
     }
 
-    public CompanyDto updateCompanyById(Long id, CompanyDto companyDto) {
+    public CompanyDto updateCompanyById(Long id, CompanyCreateRequest companyCreateRequest) {
         Company company = repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Company with ID "+id+" not founded"));
         return CompanyDto.toDto(
                 repository.save(
                         Company.builder()
                                 .id(company.getId())
-                                .companyName(companyDto.companyName())
-                                .address(companyDto.address())
-                                .email(companyDto.email())
-                                .phoneNumber(companyDto.phoneNumber())
+                                .companyName(companyCreateRequest.companyName())
+                                .address(companyCreateRequest.address())
+                                .email(companyCreateRequest.email())
+                                .phoneNumber(companyCreateRequest.phoneNumber())
                                 .employees(company.getEmployees())
                                 .build()
                 )

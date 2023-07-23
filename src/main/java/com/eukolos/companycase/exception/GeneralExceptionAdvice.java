@@ -38,5 +38,10 @@ public class GeneralExceptionAdvice extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
 
+    @ExceptionHandler(AlreadyExistInCompanyException.class)
+    public ResponseEntity<String> handle(AlreadyExistInCompanyException exception) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
+    }
+
 
 }

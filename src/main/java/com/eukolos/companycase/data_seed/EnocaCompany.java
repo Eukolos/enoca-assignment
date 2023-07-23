@@ -46,7 +46,7 @@ public class EnocaCompany implements CommandLineRunner {
                 .email("jplitz1@whitehouse.gov")
                 .phoneNumber("936-560-8405")
                 .salary(23000.00)
-                .department(Department.RESEARCH)
+                .department(Department.SUPPORT)
                 .company(enoca)
                 .build();
         Employee enocaEmployee3 = Employee.builder()
@@ -55,7 +55,7 @@ public class EnocaCompany implements CommandLineRunner {
                 .email("rfroude2@princeton.edu")
                 .phoneNumber("758-257-4750")
                 .salary(19000.00)
-                .department(Department.SUPPORT)
+                .department(Department.SERVICES)
                 .company(enoca)
                 .build();
         Employee enocaEmployee4 = Employee.builder()
@@ -64,7 +64,7 @@ public class EnocaCompany implements CommandLineRunner {
                 .email("jcotsford3@themeforest.net")
                 .phoneNumber("324-677-0234")
                 .salary(20000.00)
-                .department(Department.RESEARCH)
+                .department(Department.HUMAN_RESOURCE)
                 .company(enoca)
                 .build();
         Employee enocaEmployee5 = Employee.builder()

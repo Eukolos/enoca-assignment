@@ -1,5 +1,6 @@
 package com.eukolos.companycase.controller;
 
+import com.eukolos.companycase.dto.CompanyCreateRequest;
 import com.eukolos.companycase.dto.CompanyDto;
 import com.eukolos.companycase.service.CompanyService;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +19,8 @@ public class CompanyController {
     // Not needed ResponseEntity cause handled thanx to ResponseBody from RestController
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CompanyDto saveCompany(@RequestBody CompanyDto companyDto) {
-        return service.saveCompany(companyDto);
+    public CompanyDto saveCompany(@RequestBody CompanyCreateRequest companyCreateRequest) {
+        return service.saveCompany(companyCreateRequest);
     }
 
     @GetMapping
@@ -38,8 +39,8 @@ public class CompanyController {
     }
 
     @PutMapping("/{id}")
-    public CompanyDto updateCompanyById(@PathVariable Long id, @RequestBody CompanyDto companyDto) {
-        return service.updateCompanyById(id, companyDto);
+    public CompanyDto updateCompanyById(@PathVariable Long id, @RequestBody CompanyCreateRequest companyCreateRequest) {
+        return service.updateCompanyById(id, companyCreateRequest);
     }
 
     @DeleteMapping("/{id}")
