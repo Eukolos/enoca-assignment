@@ -161,7 +161,7 @@ public class EmployeeControllerTest {
         //when
         when(service.getEmployeeListByCompany(1L)).thenReturn(response);
 
-        mockMvc.perform(get("/api/v1/employee/company")
+        mockMvc.perform(get("/api/v1/employee/company/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$[0].firstName").value("emin"))
                 .andExpect(status().isOk());
@@ -272,7 +272,7 @@ public class EmployeeControllerTest {
         when(service.updateEmployeeById(1L,request)).thenReturn(employeeDto);
 
 
-        mockMvc.perform(put("/api/v1/employee")
+        mockMvc.perform(put("/api/v1/employee/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(serializeJson(request)))
                 .andDo(print())

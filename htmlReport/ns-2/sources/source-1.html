@@ -1,0 +1,164 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CompanyService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.eukolos.companycase.service</a>
+</div>
+
+<h1>Coverage Summary for Class: CompanyService (com.eukolos.companycase.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CompanyService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85,7%
+  </span>
+  <span class="absValue">
+    (6/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    95%
+  </span>
+  <span class="absValue">
+    (19/20)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.eukolos.companycase.service;
+&nbsp;
+&nbsp;import com.eukolos.companycase.dto.CompanyCreateRequest;
+&nbsp;import com.eukolos.companycase.dto.CompanyDto;
+&nbsp;import com.eukolos.companycase.entity.Company;
+&nbsp;import com.eukolos.companycase.repository.CompanyRepository;
+&nbsp;import jakarta.persistence.EntityNotFoundException;
+&nbsp;import lombok.RequiredArgsConstructor;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;@Service
+<b class="fc">&nbsp;@RequiredArgsConstructor</b>
+&nbsp;public class CompanyService {
+&nbsp;
+&nbsp;    private final CompanyRepository repository;
+&nbsp;
+&nbsp;    public CompanyDto saveCompany(CompanyCreateRequest companyCreateRequest) {
+<b class="fc">&nbsp;        return CompanyDto.toDto(repository.save(CompanyCreateRequest.toEntity(companyCreateRequest)));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // not recommended
+&nbsp;    // https://vladmihalcea.com/spring-data-findall-anti-pattern/
+&nbsp;    public List&lt;CompanyDto&gt; getAllCompanies() {
+<b class="fc">&nbsp;        return CompanyDto.toDtoList(repository.findAll());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public CompanyDto getCompanyById(Long id) {
+<b class="fc">&nbsp;        return CompanyDto.toDto(repository.findById(id)</b>
+<b class="fc">&nbsp;                .orElseThrow(() -&gt; new EntityNotFoundException(&quot;Company with ID &quot;+id+&quot; not founded&quot;)));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Company getCompanyByName(String companyName) {
+<b class="fc">&nbsp;        return repository.findCompanyByCompanyName(companyName)</b>
+<b class="fc">&nbsp;                .orElseThrow(() -&gt; new EntityNotFoundException(&quot;Company with name &quot;+companyName+&quot; not founded&quot;));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public CompanyDto updateCompanyById(Long id, CompanyCreateRequest companyCreateRequest) {
+<b class="fc">&nbsp;        Company company = repository.findById(id)</b>
+<b class="fc">&nbsp;                .orElseThrow(() -&gt; new EntityNotFoundException(&quot;Company with ID &quot;+id+&quot; not founded&quot;));</b>
+<b class="fc">&nbsp;        return CompanyDto.toDto(</b>
+<b class="fc">&nbsp;                repository.save(</b>
+<b class="fc">&nbsp;                        Company.builder()</b>
+<b class="fc">&nbsp;                                .id(company.getId())</b>
+<b class="fc">&nbsp;                                .companyName(companyCreateRequest.companyName())</b>
+<b class="fc">&nbsp;                                .address(companyCreateRequest.address())</b>
+<b class="fc">&nbsp;                                .email(companyCreateRequest.email())</b>
+<b class="fc">&nbsp;                                .phoneNumber(companyCreateRequest.phoneNumber())</b>
+<b class="fc">&nbsp;                                .employees(company.getEmployees())</b>
+<b class="fc">&nbsp;                                .build()</b>
+&nbsp;                )
+&nbsp;        );
+&nbsp;    }
+&nbsp;
+&nbsp;    public void deleteCompanyById(Long id) {
+<b class="nc">&nbsp;        repository.deleteById(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-23 22:14</div>
+</div>
+</body>
+</html>

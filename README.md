@@ -7,6 +7,7 @@
 - [Run the App](#🔨-run-the-app)
 - [Test App on Postman](#test-app-on-postman)
 - [Tree of Layered Structure](#tree-of-layered-structure)
+- [Testing](#testing)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -49,12 +50,28 @@
     mvn spring-boot:start
 ```
 
+## Testing
+
+The project is thoroughly tested to ensure code quality and reliability.
+
+### Integration Tests
+
+Integration tests have been implemented using [JUnit](https://junit.org/) with TestContainer and [Postman](https://www.postman.com/) for API endpoints. The integration test files are located in the `src/test/java` directory.
+
+### Unit Tests
+
+Unit tests are written using [Mockito](https://site.mockito.org/) and [JUnit](https://junit.org/). Test cases for individual components and functions can be found in the `src/test/java` directory.
+
+### Test Coverage
+
+[**All my tests and coverage percent in here**](https://github.com/Eukolos/enoca-assignment/tree/master/htmlReport/index.html)
 
 
 ## Tree of Layered Structure
 
 ```txt
 .
+src
 ├── controller
 │   ├── CompanyController.java class
 │   └── EmployeeController.java class
@@ -86,6 +103,21 @@
 │   └── EmployeeService.java class
 │  
 └── CompanyCaseApplication.java class
+test
+├── abstraction
+│    └── ITAbsract.java abstract class
+├── container
+│    └── PostgresTestContainer.java class
+├── controller
+│   ├── CompanyControllerTest.java class
+│   └── EmployeeControllerTest.java class
+├── service
+│   ├── CompanyServiceIT.java class
+│   ├── CompanyServiceTest.java class
+│   ├── EmployeeServiceIT.java class
+│   └── EmployeeServiceTest.java class
+│  
+└── CompanyCaseApplicationTests.java class
   
 ```
 
