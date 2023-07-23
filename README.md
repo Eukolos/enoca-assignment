@@ -64,7 +64,7 @@ Unit tests are written using [Mockito](https://site.mockito.org/) and [JUnit](ht
 
 ### Test Coverage
 
-[**All my tests and coverage percent in here**](https://github.com/Eukolos/enoca-assignment/tree/master/htmlReport/index.html)
+[**All my tests and coverage percent in here**](https://raw.githack.com/Eukolos/enoca-assignment/master/htmlReport/index.html)
 
 
 ## Tree of Layered Structure
