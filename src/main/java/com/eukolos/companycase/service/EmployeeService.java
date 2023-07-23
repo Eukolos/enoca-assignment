@@ -43,6 +43,8 @@ public class EmployeeService {
                 .orElseThrow(() -> new EntityNotFoundException("Company with ID {} not founded" + companyId)));
     }
 
+    //todo getEmployeeByCompanyAndDepartment
+
     public EmployeeDto getEmployeeById(Long id) {
         return EmployeeDto.toDto(repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Employee with ID {} not founded" + id)));

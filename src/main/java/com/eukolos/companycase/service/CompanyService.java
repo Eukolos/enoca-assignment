@@ -5,11 +5,13 @@ import com.eukolos.companycase.entity.Company;
 import com.eukolos.companycase.repository.CompanyRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class CompanyService {
 
@@ -22,6 +24,7 @@ public class CompanyService {
     // not recommended
     // https://vladmihalcea.com/spring-data-findall-anti-pattern/
     public List<CompanyDto> getAllCompanies() {
+        log.warn(repository.findAll().toString());
         return CompanyDto.toDtoList(repository.findAll());
     }
 

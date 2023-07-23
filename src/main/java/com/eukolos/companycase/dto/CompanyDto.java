@@ -2,14 +2,17 @@ package com.eukolos.companycase.dto;
 
 
 import com.eukolos.companycase.entity.Company;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public record CompanyDto(
         String companyName,
         String address,
         String email,
         String phoneNumber,
-        List<EmployeeDto> employeesDto
+        List<EmployeeRecursionDto> employeesDto
 ) {
     public static CompanyDto toDto(Company company) {
         return new CompanyDto(
@@ -17,12 +20,13 @@ public record CompanyDto(
                 company.getAddress(),
                 company.getEmail(),
                 company.getPhoneNumber(),
-                EmployeeDto.toDtoList(company.getEmployees())
+                Optional.of(EmployeeRecursionDto.toDtoList(company.getEmployees())).orElse(new ArrayList<>())
         );
     }
 
     public static List<CompanyDto> toDtoList(List<Company> companyList) {
-        return companyList.stream().map(CompanyDto::toDto).toList();
+
+        return Optional.of(companyList.stream().map(CompanyDto::toDto).toList()).orElse(new ArrayList<>());
     }
 
     public static Company toEntity(CompanyDto companyDto) {
@@ -31,7 +35,7 @@ public record CompanyDto(
                 .address(companyDto.address)
                 .email(companyDto.email)
                 .phoneNumber(companyDto.phoneNumber)
-                .employees(EmployeeDto.toEntityList(companyDto.employeesDto))
+                .employees(Optional.of(EmployeeRecursionDto.toEntityList(companyDto.employeesDto)).orElse(new ArrayList<>()))
                 .build();
     }
 

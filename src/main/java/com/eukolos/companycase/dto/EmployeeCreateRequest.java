@@ -1,6 +1,7 @@
 package com.eukolos.companycase.dto;
 
-import java.time.LocalDate;
+import com.eukolos.companycase.entity.Department;
+
 
 public record EmployeeCreateRequest(
         String companyName,
@@ -9,6 +10,6 @@ public record EmployeeCreateRequest(
         String email,
         String phoneNumber,
         double salary,
-        String department
+        Department department
 ) {
 }

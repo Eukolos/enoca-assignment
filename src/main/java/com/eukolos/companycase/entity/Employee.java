@@ -26,10 +26,10 @@ public class Employee {
     private double salary;
     @CreationTimestamp
     private LocalDate hireDate;
-    private String department;
+    @Enumerated(EnumType.STRING)
+    private Department department;
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
-
 
 }

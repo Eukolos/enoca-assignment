@@ -8,35 +8,33 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public record EmployeeDto(
+public record EmployeeRecursionDto(
         String firstName,
         String lastName,
         String email,
         String phoneNumber,
         double salary,
         LocalDate hireDate,
-        Department department,
-        CompanyRecursionDto companyDto
+        Department department
 ) {
 
-    public static EmployeeDto toDto(Employee employee) {
-        return new EmployeeDto(
+    public static EmployeeRecursionDto toDto(Employee employee) {
+        return new EmployeeRecursionDto(
                 employee.getFirstName(),
                 employee.getLastName(),
                 employee.getEmail(),
                 employee.getPhoneNumber(),
                 employee.getSalary(),
                 employee.getHireDate(),
-                employee.getDepartment(),
-                CompanyRecursionDto.toDto(employee.getCompany())
+                employee.getDepartment()
         );
     }
 
-    public static List<EmployeeDto> toDtoList(List<Employee> employeeList) {
-        return Optional.of(employeeList.stream().map(EmployeeDto::toDto).toList()).orElse(new ArrayList<>());
+    public static List<EmployeeRecursionDto> toDtoList(List<Employee> employeeList) {
+        return Optional.of(employeeList.stream().map(EmployeeRecursionDto::toDto).toList()).orElse(new ArrayList<>());
     }
 
-    public static Employee toEntity(EmployeeDto employeeDto) {
+    public static Employee toEntity(EmployeeRecursionDto employeeDto) {
         return Employee.builder()
                 .firstName(employeeDto.firstName)
                 .lastName(employeeDto.lastName)
@@ -45,11 +43,10 @@ public record EmployeeDto(
                 .salary(employeeDto.salary)
                 .hireDate(employeeDto.hireDate)
                 .department(employeeDto.department)
-                .company(CompanyRecursionDto.toEntity(employeeDto.companyDto))
                 .build();
     }
 
-    public static List<Employee> toEntityList(List<EmployeeDto> employeeDtoList) {
-        return Optional.of(employeeDtoList.stream().map(EmployeeDto::toEntity).toList()).orElse(new ArrayList<>());
+    public static List<Employee> toEntityList(List<EmployeeRecursionDto> employeeDtoList) {
+        return Optional.of(employeeDtoList.stream().map(EmployeeRecursionDto::toEntity).toList()).orElse(new ArrayList<>());
     }
 }
