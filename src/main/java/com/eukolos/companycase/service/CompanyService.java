@@ -30,17 +30,17 @@ public class CompanyService {
 
     public CompanyDto getCompanyById(Long id) {
         return CompanyDto.toDto(repository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Company with ID {} not founded" + id)));
+                .orElseThrow(() -> new EntityNotFoundException("Company with ID "+id+" not founded")));
     }
 
     public Company getCompanyByName(String companyName) {
         return repository.findCompanyByCompanyName(companyName)
-                .orElseThrow(() -> new EntityNotFoundException("Company with name {} not founded" + companyName));
+                .orElseThrow(() -> new EntityNotFoundException("Company with name "+companyName+" not founded"));
     }
 
     public CompanyDto updateCompanyById(Long id, CompanyDto companyDto) {
         Company company = repository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Company with ID {} not founded" + id));
+                .orElseThrow(() -> new EntityNotFoundException("Company with ID "+id+" not founded"));
         return CompanyDto.toDto(
                 repository.save(
                         Company.builder()

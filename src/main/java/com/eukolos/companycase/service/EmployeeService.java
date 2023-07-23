@@ -40,19 +40,19 @@ public class EmployeeService {
 
     public List<EmployeeDto> getEmployeeByCompany(Long companyId) {
         return EmployeeDto.toDtoList(repository.findEmployeeByCompany_Id(companyId)
-                .orElseThrow(() -> new EntityNotFoundException("Company with ID {} not founded" + companyId)));
+                .orElseThrow(() -> new EntityNotFoundException("Employee with ID "+companyId+" not founded")));
     }
 
     //todo getEmployeeByCompanyAndDepartment
 
     public EmployeeDto getEmployeeById(Long id) {
         return EmployeeDto.toDto(repository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Employee with ID {} not founded" + id)));
+                .orElseThrow(() -> new EntityNotFoundException("Employee with ID "+id+" not founded")));
     }
 
     public EmployeeDto updateEmployeeById(Long id, EmployeeDto employeeDto) {
         Employee employee = repository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Employee with ID {} not founded" + id));
+                .orElseThrow(() -> new EntityNotFoundException("Employee with ID "+id+" not founded"));
         return EmployeeDto.toDto(
                 repository.save(
                         Employee.builder()

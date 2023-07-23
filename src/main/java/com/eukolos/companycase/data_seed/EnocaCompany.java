@@ -36,6 +36,7 @@ public class EnocaCompany implements CommandLineRunner {
                 .lastName("Byneth")
                 .email("gbyneth0@yellowbook.com")
                 .phoneNumber("783-679-2147")
+                .salary(16000.00)
                 .department(Department.RESEARCH)
                 .company(enoca)
                 .build();
@@ -44,6 +45,7 @@ public class EnocaCompany implements CommandLineRunner {
                 .lastName("Plitz")
                 .email("jplitz1@whitehouse.gov")
                 .phoneNumber("936-560-8405")
+                .salary(23000.00)
                 .department(Department.RESEARCH)
                 .company(enoca)
                 .build();
@@ -52,6 +54,7 @@ public class EnocaCompany implements CommandLineRunner {
                 .lastName("Froude")
                 .email("rfroude2@princeton.edu")
                 .phoneNumber("758-257-4750")
+                .salary(19000.00)
                 .department(Department.SUPPORT)
                 .company(enoca)
                 .build();
@@ -60,6 +63,7 @@ public class EnocaCompany implements CommandLineRunner {
                 .lastName("Cotsford")
                 .email("jcotsford3@themeforest.net")
                 .phoneNumber("324-677-0234")
+                .salary(20000.00)
                 .department(Department.RESEARCH)
                 .company(enoca)
                 .build();
@@ -68,7 +72,26 @@ public class EnocaCompany implements CommandLineRunner {
                 .lastName("Banghe")
                 .email("vbanghe4@cdc.gov")
                 .phoneNumber("839-886-0126")
+                .salary(18000.00)
                 .department(Department.SALES)
+                .company(enoca)
+                .build();
+        Employee enocaEmployee6 = Employee.builder()
+                .firstName("Harwilll")
+                .lastName("Perrinchief")
+                .email("hperrinchiefk@si.edu")
+                .phoneNumber("954-511-2677")
+                .salary(18000.00)
+                .department(Department.SUPPORT)
+                .company(enoca)
+                .build();
+        Employee enocaEmployee7 = Employee.builder()
+                .firstName("Nathaniel")
+                .lastName("Rathjen")
+                .email("nrathjenl@wikispaces.com")
+                .phoneNumber("507-965-1046")
+                .salary(18000.00)
+                .department(Department.RESEARCH)
                 .company(enoca)
                 .build();
         employeeRepository.saveAll(List.of(
@@ -76,6 +99,9 @@ public class EnocaCompany implements CommandLineRunner {
                 enocaEmployee2,
                 enocaEmployee3,
                 enocaEmployee4,
-                enocaEmployee5));
+                enocaEmployee5,
+                enocaEmployee6,
+                enocaEmployee7
+        ));
     }
 }
