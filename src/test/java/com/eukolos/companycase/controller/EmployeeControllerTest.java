@@ -277,7 +277,7 @@ public class EmployeeControllerTest {
                         .content(serializeJson(request)))
                 .andDo(print())
                 .andExpect(jsonPath("$.firstName").value(request.firstName()))
-                .andExpect(status().isCreated());
+                .andExpect(status().isOk());
     }
 
     @Test
