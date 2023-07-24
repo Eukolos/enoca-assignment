@@ -68,5 +68,5 @@ scp -P 8080 mark@ip_adresi:dosya_adresi dosya_hedef_adresi
 
 ### 7-Apache Solr servisine yazılacak bir query örneği Apache Solr kullanılan sql programlarından daha farklı runtime bir database. Solr a hali hazırda kayıtlı bir alan olduğunu düşünelim. Alanın ismi “updatedAt” long tipinde tutulan bir alan. Ben 2020 Ocak ayından sonraki verileri getir dediğimde solr a nasıl bir query yazılmalı. http://example?query= kısmını nasıl doldurmalıyım?
 ```
-curl http://example/?query=updatedAt:[2020-01-01T00:00:00Z%20TO%20*]
+curl http://localhost:8983/solr/techproducts/select?q=updatedAt:[2020-01-01T00:00:00Z%20TO%20*]
 ```
