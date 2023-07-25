@@ -1,6 +1,8 @@
 # Company Management System - Enoca Assigment
 <img src="image/photo.png" alt="feature"/>
 
+[##**Answer of Assigment Questions**##](https://github.com/Eukolos/enoca-assignment/blob/master/ANSWER.md)  
+
 ## Table of Contents
 
 - [Dependencies Used](#dependencies-used)
