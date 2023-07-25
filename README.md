@@ -124,6 +124,9 @@ test
 - [**Import Endpoints on your Postman** copy link](https://api.postman.com/collections/20436403-f8c43a7b-9ce8-40ed-a7e8-6a130a18159c?access_key=PMAT-01H61BPSATH41C0QW1DF86AT8S)
 - [**Import Endpoints on your Postman** download data](https://github.com/Eukolos/enoca-assignment/tree/master/postman)
 
+<img src="image/postman-ss2.png" alt="feature3"/>
+<img src="image/postman-ss.png" alt="feature2"/>
+
 ## Contact
 
 This project was created by [Eukolos](https://github.com/Eukolos). Contributions are welcome!
